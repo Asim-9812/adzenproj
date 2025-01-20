@@ -8,25 +8,26 @@ import 'package:intl/intl.dart';
 
 
 
-String dateFormat({required int type}){
+/// Formats the date based on the provided type.
+/// [type] 0: Current date, 1: Date range (last 30 days), 2: Current quarter.
+String dateFormat({required int type}) {
   DateTime currentDate = DateTime.now();
   DateTime prevMonth = currentDate.subtract(const Duration(days: 30));
 
-  if(type == 0){
+  if (type == 0) {
     String date = DateFormat('MMMM dd, yyyy').format(currentDate);
     return date;
-  }
-  else if(type == 1){
+  } else if (type == 1) {
     String current = DateFormat('MMM dd, yyyy').format(currentDate);
     String prev = DateFormat('MMM dd, yyyy').format(prevMonth);
     return '$prev - $current';
-  }
-  else{
+  } else {
     return getQuarterDateRange(currentDate);
   }
 }
 
-// Helper function to get the quarter (Q1, Q2, etc.) and the month's start and end.
+/// Returns the date range for the current quarter (Q1, Q2, etc.)
+/// and the months of the quarter (e.g., 'Q1 January - March, 2025').
 String getQuarterDateRange(DateTime date) {
   int month = date.month;
   String quarter = '';
@@ -61,6 +62,17 @@ Image logo(){
   return Image.asset('assets/images/sample.png');
 }
 
+Widget cover(){
+  return Container(
+    width: double.infinity,
+    decoration: const BoxDecoration(
+        image: DecorationImage(image: AssetImage('assets/images/cover.jpg'),fit: BoxFit.cover)
+    ),
+  );
+}
+
+/// Returns a profile card with a circular avatar.
+/// [radius] controls the size of the avatar, allowing for responsiveness across platforms.
 Widget profileCard({double? radius}){
   return Card(
     elevation: 0,
@@ -77,12 +89,12 @@ Widget profileCard({double? radius}){
   );
 }
 
-Widget notificationButton(){
+Widget notificationButton({Color? color}){
   return Container(
     padding: const EdgeInsets.all(8.0),
-    decoration: const BoxDecoration(
+    decoration: BoxDecoration(
       shape: BoxShape.circle,
-      color: MyColors.white,
+      color: color ?? MyColors.white,
     ),
     child: Transform.rotate(
       angle: 5.7,

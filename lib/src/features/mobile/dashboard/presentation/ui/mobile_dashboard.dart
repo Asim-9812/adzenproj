@@ -23,6 +23,8 @@ class _MobileDashboardState extends State<MobileDashboard> {
 
   @override
   Widget build(BuildContext context) {
+    // Locks the mobile platform's orientation to portrait mode
+    // to maintain a consistent UI layout.
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,

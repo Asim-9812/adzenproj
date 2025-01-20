@@ -1,21 +1,22 @@
 import 'package:adzenproj/src/core/resources/color_manager.dart';
-import 'package:adzenproj/src/features/mobile/homepage/data/model/graph_model.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+
+import 'model/graph_model.dart';
 
 
 class LineChartWidget extends StatelessWidget {
   final List<GraphPoints> points;
   final List<GraphPoints> points2;
 
-  const LineChartWidget(this.points,this.points2, {super.key});
+  const LineChartWidget(this.points, this.points2, {super.key});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: AspectRatio(
-        aspectRatio: 16/9,
+        aspectRatio: 16/9,  // Maintain 16:9 aspect ratio for the chart
         child: LineChart(
           LineChartData(
             minY: 600000,
@@ -23,35 +24,35 @@ class LineChartWidget extends StatelessWidget {
             lineTouchData: LineTouchData(
               enabled: true,
               touchTooltipData: LineTouchTooltipData(
-                getTooltipColor: (touchedSpot) => MyColors.white,
-              )
+                getTooltipColor: (touchedSpot) => MyColors.white, // Tooltip color on touch
+              ),
             ),
             lineBarsData: [
               LineChartBarData(
-                  spots: points.map((point) => FlSpot(point.x, point.y)).toList(),
-                  isCurved: false,
-                  dotData: FlDotData(
-                    show: true,
-                  ),
-                  color: MyColors.primaryColor,
+                spots: points.map((point) => FlSpot(point.x, point.y)).toList(),
+                isCurved: false, // Line is not curved
+                dotData: const FlDotData(
+                  show: true, // Show data points as dots
+                ),
+                color: MyColors.primaryColor,  // Line color for the first dataset
               ),
               LineChartBarData(
                   spots: points2.map((point) => FlSpot(point.x, point.y)).toList(),
-                  isCurved: false,
-                  dotData: FlDotData(
-                    show: true,
+                  isCurved: false, // Line is not curved
+                  dotData: const FlDotData(
+                    show: true, // Show data points as dots
                   ),
-                  color: MyColors.red
+                  color: MyColors.red  // Line color for the second dataset
               ),
             ],
             borderData: FlBorderData(
-                border: const Border(bottom: BorderSide(), left: BorderSide.none)),
-            gridData: FlGridData(show: true),
+                border: const Border(bottom: BorderSide(), left: BorderSide.none)),  // Border for the chart
+            gridData: const FlGridData(show: true),  // Show grid lines
             titlesData: FlTitlesData(
-              bottomTitles: AxisTitles(sideTitles: _bottomTitles),
-              leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-              rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
+              bottomTitles: AxisTitles(sideTitles: _bottomTitles),  // Bottom axis labels (Months)
+              leftTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),  // Hide left axis titles
+              topTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),  // Hide top axis titles
+              rightTitles: const AxisTitles(sideTitles: SideTitles(showTitles: false)),  // Hide right axis titles
             ),
           ),
         ),
@@ -59,15 +60,16 @@ class LineChartWidget extends StatelessWidget {
     );
   }
 
+  // Left axis labels (Y-axis)
   SideTitles get _leftTitles => SideTitles(
     showTitles: true,
     getTitlesWidget: (value, meta) {
-      String text = '${value.toInt()}';
-
-      return Text(text,style: TextStyle(fontSize: 8),);
+      String text = '${value.toInt()}';  // Convert Y-axis values to integers for display
+      return Text(text, style: const TextStyle(fontSize: 8));  // Display with smaller font size
     },
   );
 
+  // Bottom axis labels (X-axis - Months)
   SideTitles get _bottomTitles => SideTitles(
     showTitles: true,
     getTitlesWidget: (value, meta) {
@@ -95,7 +97,6 @@ class LineChartWidget extends StatelessWidget {
           text = 'Nov';
           break;
       }
-
       return Text(text);
     },
   );

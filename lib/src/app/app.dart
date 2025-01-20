@@ -15,6 +15,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      // MediaQuery widget is used for the [textScaler] parameter
+      // to ensure consistent UI scaling across different platforms.
       home: const MediaQuery(
         data: MediaQueryData(textScaler: TextScaler.linear(1.0)),
         child: ResponsiveLayout(
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
       ),
       theme: ThemeData(
           scaffoldBackgroundColor: MyColors.white,
-        fontFamily: 'Inter'
+          fontFamily: 'Inter'
       ),
     );
   }

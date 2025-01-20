@@ -22,20 +22,16 @@ class MobileHomepage extends ConsumerStatefulWidget {
 
 class _MobileHomepageState extends ConsumerState<MobileHomepage> {
 
-
-  bool isVisible = false;
-  int index = 0;
-  Timer? _visibilityTimer;
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    Future.delayed(Duration.zero,(){
+
+    // Delay the changeStatus call to ensure the widget builds first
+    // before attempting to update the state.
+    Future.delayed(Duration.zero, () {
       ref.read(mobileHomeController.notifier).changeStatus();
     });
   }
-
-
 
   @override
   Widget build(BuildContext context) {
@@ -48,14 +44,13 @@ class _MobileHomepageState extends ConsumerState<MobileHomepage> {
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 48.0,left: 4,right: 16),
+            padding: const EdgeInsets.only(top: 48.0, left: 4, right: 16),
             child: Row(
-
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Row(
                   children: [
-                    logo(),
+                    logo(), // A sample logo
                     w10,
                     const Text(
                       'Dashboard',
@@ -71,6 +66,7 @@ class _MobileHomepageState extends ConsumerState<MobileHomepage> {
           Expanded(
             child: GestureDetector(
               onPanUpdate: (drag) {
+                // Detecting swipe gesture to change tab visibility.
                 if (drag.delta.dx < 0) {
                   ref.read(mobileHomeController.notifier).changeStatus();
                 }
@@ -78,7 +74,7 @@ class _MobileHomepageState extends ConsumerState<MobileHomepage> {
               child: Container(
                 decoration: const BoxDecoration(
                   color: MyColors.white,
-                  borderRadius:BorderRadius.vertical(top: Radius.circular(32))
+                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
                 ),
                 child: Stack(
                   children: [
@@ -86,7 +82,8 @@ class _MobileHomepageState extends ConsumerState<MobileHomepage> {
                       pageSnapping: true,
                       scrollDirection: Axis.vertical,
                       controller: controller,
-                      onPageChanged: (newIndex){
+                      onPageChanged: (newIndex) {
+                        // Changing the page index when a new page is selected.
                         ref.read(mobileHomeController.notifier).changeIndex(newIndex);
                         ref.read(mobileHomeController.notifier).changeStatus();
                       },
@@ -95,12 +92,12 @@ class _MobileHomepageState extends ConsumerState<MobileHomepage> {
                         CustomerMobile(),
                       ],
                     ),
-                    const ThumbTabs()
+                    const ThumbTabs() // Tab widget for switching between pages.
                   ],
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
