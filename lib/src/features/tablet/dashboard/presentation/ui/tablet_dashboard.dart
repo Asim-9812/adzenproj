@@ -14,20 +14,27 @@ class TabletDashboard extends ConsumerWidget {
   Widget build(BuildContext context, ref) {
     final controller = ref.watch(tabDashboardController).pageController;
     return Scaffold(
-      body: Row(
-        children: [
-          const SideBar(),
-          Expanded(
-            child: PageView(
-              controller: controller,
-              physics: NeverScrollableScrollPhysics(),
-              children: [
-                TabHomepage(),
-                TabProfilePage()
-              ],
-            ),
+      body: SafeArea(
+        child: Padding(
+          // To display under the status bar of the device since
+          // in few devices the SafeArea widget is not working properly.
+          padding: const EdgeInsets.only(top: 32.0),
+          child: Row(
+            children: [
+              const SideBar(),
+              Expanded(
+                child: PageView(
+                  controller: controller,
+                  physics: const NeverScrollableScrollPhysics(),
+                  children: const [
+                    TabHomepage(),
+                    TabProfilePage()
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
+        ),
       ),
     );
   }

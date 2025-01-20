@@ -31,7 +31,7 @@ class ProfileCardWidget extends StatelessWidget {
               Expanded(
                   flex: 2,
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                         border: Border(
                             left: BorderSide(
                                 color: MyColors.grey,
@@ -54,7 +54,7 @@ class ProfileCardWidget extends StatelessWidget {
           ),
           Column(
             children: [
-              Expanded(
+              const Expanded(
                   flex: 2,
                   child: SizedBox()
               ),
@@ -71,7 +71,7 @@ class ProfileCardWidget extends StatelessWidget {
                           children: [
                             Card(
                                 elevation: 5,
-                                shape: CircleBorder(),
+                                shape: const CircleBorder(),
                                 child: profileCard(radius: 75)),
                             const Column(
                               mainAxisAlignment: MainAxisAlignment.end,

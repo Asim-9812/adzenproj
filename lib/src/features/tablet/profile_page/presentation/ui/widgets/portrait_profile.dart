@@ -18,17 +18,17 @@ class TabPortraitProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.only(top: 16.0,right: 16,left: 16),
+        padding: const EdgeInsets.only(top: 16.0,right: 16,left: 16),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ProfileAppBar(),
+            const ProfileAppBar(),
             h30,
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    ProfileCardWidget(),
+                    const ProfileCardWidget(),
                     h10,
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +46,7 @@ class TabPortraitProfile extends StatelessWidget {
                                     )
                                 ),
                                 width: double.infinity,
-                                constraints:  BoxConstraints(
+                                constraints:  const BoxConstraints(
                                     minHeight:  160
                                 ),
                                 padding: const EdgeInsets.all(16),
@@ -120,7 +120,7 @@ class TabPortraitProfile extends StatelessWidget {
                                     )
                                 ),
                                 width: double.infinity,
-                                constraints:  BoxConstraints(
+                                constraints:  const BoxConstraints(
                                     minHeight:  280
                                 ),
                                 padding: const EdgeInsets.all(16),
@@ -171,7 +171,7 @@ class TabPortraitProfile extends StatelessWidget {
                                         ],
                                       ),
                                     ),
-                                    Divider(),
+                                    const Divider(),
                                     h10,
                                     Container(
                                       decoration: BoxDecoration(
@@ -179,7 +179,7 @@ class TabPortraitProfile extends StatelessWidget {
                                           borderRadius: BorderRadius.circular(12)
                                       ),
                                       padding: const EdgeInsets.all(8),
-                                      child: Center(
+                                      child: const Center(
                                           child: Text('Need to add new stocks.',style: TextStyle(color: MyColors.white,fontWeight: FontWeight.w500),)),
                                     ),
                                     h10,
@@ -189,7 +189,7 @@ class TabPortraitProfile extends StatelessWidget {
                                           borderRadius: BorderRadius.circular(12)
                                       ),
                                       padding: const EdgeInsets.all(8),
-                                      child: Center(
+                                      child: const Center(
                                           child: Text('Return orders needs to be collected.',style: TextStyle(color: MyColors.white,fontWeight: FontWeight.w500),)),
                                     ),
                                     h10,
@@ -199,7 +199,7 @@ class TabPortraitProfile extends StatelessWidget {
                                           borderRadius: BorderRadius.circular(12)
                                       ),
                                       padding: const EdgeInsets.all(8),
-                                      child: Center(
+                                      child: const Center(
                                           child: Text('Return orders needs to be collected.',style: TextStyle(color: MyColors.white,fontWeight: FontWeight.w500),)),
                                     ),
                                   ],
@@ -209,7 +209,7 @@ class TabPortraitProfile extends StatelessWidget {
                           ),
                         ),
                         w10,
-                        Expanded(
+                        const Expanded(
                           flex: 1,
                           child: PersonalRecentActivities(isPortrait: true,),
                         ),
@@ -230,34 +230,34 @@ class TabPortraitProfile extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text('News & Updates', style: mbh3,),
-                                const Text('January 15, 2025', style: mbs1,),
+                                Text('News & Updates', style: mbh3,),
+                                Text('January 15, 2025', style: mbs1,),
                               ],
                             ),
                             h20,
                             ListTile(
                               leading: logo(),
-                              title: Wrap(
+                              title: const Wrap(
                                 children: [
                                   Text('Effective March 2025 commissions for premium products will increase by 10%. Details available on the portal. Jan 15, 2025',style: TextStyle(fontSize: 16),),
                                 ],
                               ),
                             ),
-                            Divider(),
+                            const Divider(),
                             ListTile(
                               leading: logo(),
-                              title: Wrap(
+                              title: const Wrap(
                                 children: [
                                   Text('Effective March 2025 commissions for premium products will increase by 10%. Details available on the portal. Jan 15, 2025',style: TextStyle(fontSize: 16),),
                                 ],
                               ),
                             ),
-                            Divider(),
+                            const Divider(),
                             h20,
-                            Center(child: Text('See more',style: mgs1,))
+                            const Center(child: Text('See more',style: mgs1,))
                           ],
                         )
                     ),

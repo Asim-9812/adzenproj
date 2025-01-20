@@ -32,6 +32,8 @@ class TabLandscapeHomepage extends StatelessWidget {
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        // A bool condition is given for consistent height
+                        // the widgets when in portrait or landscape.
                         Expanded(
                           flex: 2,
                           child: TabRevenue(isPortrait: false),
