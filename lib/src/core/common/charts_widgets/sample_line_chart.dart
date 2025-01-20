@@ -2,6 +2,7 @@ import 'package:adzenproj/src/core/resources/color_manager.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 
+import '../../resources/font_manager.dart';
 import 'model/graph_model.dart';
 
 
@@ -46,7 +47,7 @@ class LineChartWidget extends StatelessWidget {
               ),
             ],
             borderData: FlBorderData(
-                border: const Border(bottom: BorderSide(), left: BorderSide.none)),  // Border for the chart
+                border: const Border(bottom: BorderSide(), left: BorderSide())),  // Border for the chart
             gridData: const FlGridData(show: true),  // Show grid lines
             titlesData: FlTitlesData(
               bottomTitles: AxisTitles(sideTitles: _bottomTitles),  // Bottom axis labels (Months)
@@ -97,7 +98,7 @@ class LineChartWidget extends StatelessWidget {
           text = 'Nov';
           break;
       }
-      return Text(text);
+      return Text(text,style: mbs1,);
     },
   );
 }

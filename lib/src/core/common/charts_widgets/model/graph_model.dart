@@ -33,3 +33,4 @@ List<GraphPoints> barData = List.generate(6, (index) {
   int yValue = index == 5? 240 : val<10 ? val*50 : val;
   return GraphPoints(x: (index + 1).toDouble(), y: yValue.roundToDouble());
 });
+

@@ -11,29 +11,26 @@ class ProfileBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Row(
-            children: [
-              profileCard(radius: 32),
-              w16,
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('Hi,',style: mbr1,),
-                  Text('John Doe',style: mbh3,)
-                ],
-              ),
-            ],
-          ),
-          Text('January 20, 2025',style: mbs1,)
-        ],
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            profileCard(radius: 32),
+            w16,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Hi,',style: mbr1,),
+                Text('John Doe',style: mbh3,)
+              ],
+            ),
+          ],
+        ),
+        Text('January 20, 2025',style: mbs1,)
+      ],
     );
   }
 }

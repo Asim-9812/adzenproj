@@ -71,6 +71,16 @@ Widget cover(){
   );
 }
 
+Widget tabCover(){
+  return Container(
+    width: double.infinity,
+    decoration: const BoxDecoration(
+      borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+        image: DecorationImage(image: AssetImage('assets/images/cover.jpg'),fit: BoxFit.cover)
+    ),
+  );
+}
+
 /// Returns a profile card with a circular avatar.
 /// [radius] controls the size of the avatar, allowing for responsiveness across platforms.
 Widget profileCard({double? radius}){

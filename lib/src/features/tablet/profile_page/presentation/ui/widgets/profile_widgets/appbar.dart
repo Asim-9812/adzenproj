@@ -1,5 +1,9 @@
 
 
+
+
+
+
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/common/common_widgets.dart';
@@ -7,8 +11,8 @@ import '../../../../../../../core/resources/color_manager.dart';
 import '../../../../../../../core/resources/font_manager.dart';
 import '../../../../../../../core/resources/gap_manager.dart';
 
-class DashboardBar extends StatelessWidget {
-  const DashboardBar({super.key});
+class ProfileAppBar extends StatelessWidget {
+  const ProfileAppBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +21,7 @@ class DashboardBar extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text('Dashboard',style: mbh2,),
+            const Text('Profile',style: mbh2,),
             notificationButton(color: MyColors.grey)
           ],
         ),

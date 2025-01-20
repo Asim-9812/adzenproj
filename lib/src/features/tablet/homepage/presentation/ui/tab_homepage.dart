@@ -11,7 +11,7 @@ class TabHomepage extends StatelessWidget {
   Widget build(BuildContext context) {
     return OrientationBuilder(
         builder: (context,orientation){
-          return orientation == Orientation.portrait ? TabPortraitHomepage() : TabLandscapeHomepage();
+          return orientation == Orientation.portrait ? const TabPortraitHomepage() : const TabLandscapeHomepage();
         }
     );
   }
